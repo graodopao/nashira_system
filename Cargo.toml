@@ -1,7 +1,11 @@
 [package]
 name = "nashira_system"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
+
+# This should go in the Cargo.toml in the root directory
+[profile.release]
+strip = true
 
 [dependencies]
 anyhow = "1.0.100"
@@ -11,3 +15,22 @@ log = "0.4.29"
 wgpu = "28.0.0"
 pollster = "0.4.0"
 wasm-bindgen = "0.2.106"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+console_error_panic_hook = "0.1.6"
+console_log = "1.0"
+wgpu = { version = "28.0", features = ["webgl"]}
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4.30"
+web-sys = { version = "0.3", features = [
+    "Document",
+    "Window",
+    "Element",
+]}
+
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[package.metadata.wasm-pack]
+wasm-opt = false
