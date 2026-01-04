@@ -28,9 +28,9 @@ web-sys = { version = "0.3", features = [
     "Element",
 ]}
 
-
-[lib]
-crate-type = ["cdylib", "rlib"]
+#
+#[lib]
+#crate-type = ["cdylib", "rlib"]
 
 [package.metadata.wasm-pack]
 wasm-opt = false
