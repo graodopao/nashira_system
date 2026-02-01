@@ -1,5 +1,8 @@
 mod nashira_vm;
 
+use std::fs;
+use crate::nashira_vm::lexer;
+
 use std::sync::Arc;
 
 use winit::{
@@ -9,6 +12,7 @@ use winit::window::WindowId;
 #[cfg(target_arch = "wasm32")]
 use wasm_bindgen::prelude::*;
 use crate::nashira_vm::{fixed_from_float, float_from_fixed};
+use crate::nashira_vm::lexer::Lexer;
 
 pub struct State {
     window: Arc<winit::window::Window>,
@@ -156,6 +160,9 @@ pub fn run_web() -> Result<(), wasm_bindgen::JsValue> {
 }
 
 fn main() {
+    let path = "assets/test_script.nash";
+    let lexer = Lexer::tokenize(fs::read_to_string(path).unwrap().as_str());
+
     println!("3.5 becomes {}", float_from_fixed(fixed_from_float(3.5)));
     println!("3.1 becomes {}", float_from_fixed(fixed_from_float(3.1)));
     println!("3.46 becomes {}", float_from_fixed(fixed_from_float(3.46)));

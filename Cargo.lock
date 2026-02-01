@@ -933,6 +933,7 @@ dependencies = [
  "console_log",
  "env_logger",
  "log",
+ "once_cell",
  "pollster",
  "wasm-bindgen",
  "wasm-bindgen-futures",

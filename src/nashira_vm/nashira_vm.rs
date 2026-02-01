@@ -1,15 +1,16 @@
 use super::value::VALUE;
 use super::instruction::TOKEN;
 
-struct NashiraVM {
+pub struct NashiraVM {
     stack: Vec<VALUE>,
     instruction_pointer: usize,
 }
 
 impl NashiraVM {
+
     pub fn execute(&mut self, instructions: Vec<TOKEN>) {
         loop {
-            let token = instructions[self.instruction_pointer];
+            let token = &instructions[self.instruction_pointer];
             self.instruction_pointer += 1;
 
             match token {
@@ -22,6 +23,8 @@ impl NashiraVM {
                 TOKEN::SUB => {},
                 TOKEN::MUL => {},
                 TOKEN::DIV => {},
+                TOKEN::VAL(_) => todo!(),
+                _ => todo!(),
             }
         }
     }

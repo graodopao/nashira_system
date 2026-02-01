@@ -15,6 +15,7 @@ log = "0.4.29"
 wgpu = "28.0.0"
 pollster = "0.4.0"
 wasm-bindgen = "0.2.106"
+once_cell = "1.21.3"
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 console_error_panic_hook = "0.1.6"

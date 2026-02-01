@@ -1,6 +1,8 @@
-mod instruction;
-mod nashira_vm;
-mod value;
+pub mod instruction;
+pub mod nashira_vm;
+pub mod lexer;
+pub mod value;
+pub mod parser;
 
 pub use value::{
     Fixed32,
